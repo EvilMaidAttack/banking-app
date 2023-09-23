@@ -5,18 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AccountSummaryComponent } from './account-summary/account-summary.component';
+import { AccountInformationService } from './services/account-information.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    AccountSummaryComponent
+    AccountSummaryComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AccountInformationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
