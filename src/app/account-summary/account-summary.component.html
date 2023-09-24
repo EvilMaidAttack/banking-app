@@ -1,23 +1,31 @@
 <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">{{title}}</h5>
+    <div class="card-header" (click)="toggle()">
+      <span>
+        <h5 class="card-title" style="display: inline;">{{title}}</h5>
+        <i class="bi" [ngClass]="{'bi-caret-up-fill':isExpanded, 'bi-caret-down-fill':!isExpanded}"></i>
+      </span>
+    </div>
+    <div class="card-body" *ngIf="isExpanded">
       <div>
         <ul>
           <li>
+            <i style="font-size: 40px;" class="bi bi-person-circle"></i>
+          </li>
+          <li>
             <label for="name">Account Holder Name</label>
-            <p id="name"> {{accountInformation.name}} </p>
+            <p id="name" class="small-text"> {{accountInformation.name}} </p>
           </li>
           <li>
             <label for="name">Account Number</label>
-            <p id="name"> {{accountInformation.number}} </p>
+            <p id="name" class="small-text"> {{accountInformation.number}} </p>
           </li>
           <li>
             <label for="number">Branch</label>
-            <p id="name"> {{accountInformation.branch}} </p>
+            <p id="name" class="small-text"> {{accountInformation.branch}} </p>
           </li>
-          <li>
-            <label for="name">Balance</label>
-            <p id="name"> {{accountInformation.balance}} </p>
+          <li class="higlight-group">
+            <label for="name" class="highlight-label">Balance</label>
+            <p id="name" class="highlight-balance"> {{accountInformation.balance | currency:'EUR':'symbol':'1.2-2'}} </p>
           </li>
         </ul>
       </div>

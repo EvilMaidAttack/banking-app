@@ -12,6 +12,7 @@ export class AccountSummaryComponent implements OnInit{
 
   title = "Account Summary";
   accountInformation: AccountInformation;
+  isExpanded = true;
 
   constructor(private service: AccountInformationService){
 
@@ -23,6 +24,10 @@ export class AccountSummaryComponent implements OnInit{
 
     this.accountInformation = this.service.getAccountInformation();
     
+  }
+
+  toggle(){
+    this.isExpanded = !this.isExpanded;
   }
 
 
